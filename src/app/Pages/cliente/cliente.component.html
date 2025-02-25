@@ -13,42 +13,48 @@
       <!-- Formulario -->
       <div class="w-1/2 p-8 flex flex-col justify-center">
           <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Crea tu Cuenta</h2>
-          <form th:action="@{/RegistroCuenta}" th:method="post" th:object="${cliente}" class="space-y-5">
-                  <input type="hidden" th:field="*{id}">
+          <form (ngSubmit)="RegistroCliente()" class="space-y-5">
+
               <!-- Cédula -->
               <div>
                   <label for="cedula" class="text-gray-700 font-medium">Cédula</label>
-                  <input type="text" th:field="*{cedula}" id="cedula" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                  <input [(ngModel)]="cliente.cedula" name="cedula"
+                  type="text" id="cedula" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
               </div>
 
               <!-- Nombre -->
               <div>
                   <label for="nombre" class="text-gray-700 font-medium">Nombre Completo</label>
-                  <input type="text" th:field="*{nombre}" id="nombre" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                  <input [(ngModel)]="cliente.nombre" name="nombre"
+                   type="text"  id="nombre" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
               </div>
 
               <!-- Teléfono -->
               <div>
                   <label for="telefono" class="text-gray-700 font-medium">Teléfono</label>
-                  <input type="tel" th:field="*{telefono}" id="telefono" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                  <input [(ngModel)]="cliente.telefono" name="telefono"
+                  type="tel"  id="telefono" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
               </div>
 
               <!-- Dirección -->
               <div>
                   <label for="direccion" class="text-gray-700 font-medium">Dirección</label>
-                  <input type="text" th:field="*{direccion}" id="direccion" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                  <input [(ngModel)]="cliente.direccion" name="direccion"
+                   type="text" id="direccion" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
               </div>
 
               <!-- Fecha de Nacimiento -->
               <div>
                   <label for="fecha_nacimiento" class="text-gray-700 font-medium">Fecha de Nacimiento</label>
-                  <input type="date" th:field="*{fecha_nacimiento}" id="fecha_nacimiento" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                  <input [(ngModel)]="cliente.fechaNacimiento" name="fecha_nacimiento"
+                  type="date"  id="fecha_nacimiento" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
               </div>
 
               <!-- Correo Electrónico -->
               <div>
                   <label for="correo" class="text-gray-700 font-medium">Correo Electrónico</label>
-                  <input type="email" th:field="*{correo}" id="correo" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                  <input [(ngModel)]="cliente.correo" name="correo"
+                    type="email" id="correo" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
               </div>
 
               <!-- Botón de Envío -->

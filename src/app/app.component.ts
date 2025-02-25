@@ -1,6 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import NavbarComponent from "./Pages/home/navbar/navbar.component";
 
 
 @Component({
