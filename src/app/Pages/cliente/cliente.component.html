@@ -1,73 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
 
-<div class="flex flex-grow justify-center items-center p-6">
-  <div class="bg-white shadow-xl rounded-2xl overflow-hidden flex flex-row-reverse max-w-5xl w-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Prestabank</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@angular/core@13.2.5/bundles/core.umd.js"></script> <!-- Agregar Angular si no está importado -->
+    <link rel="stylesheet"href="src/app/Pages/cliente/cliente.component.css"/>
+</head>
 
-      <!-- Imagen Lateral Derecha -->
-      <div class="w-1/2 bg-indigo-500 flex flex-col justify-center items-center p-8 text-white">
-          <img src="imagenes/logo_griz.png" class="w-full h-40 object-cover mt-4 rounded-lg">
-          <h2 class="text-2xl font-bold mb-4">Bienvenido a Prestabank</h2>
-          <p class="text-center">Regístrate y accede a nuestras increíbles ofertas financieras.</p>
-          <img src="imagenes/1.gif" alt="Registro" class="w-full rounded-lg mt-6">
-      </div>
+<body class="bg-gray-100 font-sans">
 
-      <!-- Formulario -->
-      <div class="w-1/2 p-8 flex flex-col justify-center">
-          <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Crea tu Cuenta</h2>
-          <form (ngSubmit)="RegistroCliente()" class="space-y-5">
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Prestabank</h1>
+            <p class="text-xl mt-2">Tu banco en línea de confianza</p>
+        </div>
+    </header>
 
-              <!-- Cédula -->
-              <div>
-                  <label for="cedula" class="text-gray-700 font-medium">Cédula</label>
-                  <input [(ngModel)]="cliente.cedula" name="cedula"
-                  type="text" id="cedula" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
-              </div>
+    <!-- Main Content -->
+    <div class="flex flex-grow justify-center items-center p-6">
+        <div class="bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col md:flex-row-reverse max-w-5xl w-full">
 
-              <!-- Nombre -->
-              <div>
-                  <label for="nombre" class="text-gray-700 font-medium">Nombre Completo</label>
-                  <input [(ngModel)]="cliente.nombre" name="nombre"
-                   type="text"  id="nombre" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
-              </div>
+            <!-- Imagen Lateral Derecha -->
+            <div class="w-full md:w-1/2 bg-indigo-500 flex flex-col justify-center items-center p-8 text-white">
+                <img src="public/img/logo_griz.png" class="w-full h-40 object-cover mt-4 rounded-lg max-w-xs" alt="Logo de Prestabank">
+                <h2 class="text-2xl font-bold mb-4">Bienvenido a Prestabank</h2>
+                <p class="text-center">Regístrate y accede a nuestras increíbles ofertas financieras.</p>
+                <img src="imagenes/1.gif" alt="Registro" class="w-full rounded-lg mt-6">
+            </div>
 
-              <!-- Teléfono -->
-              <div>
-                  <label for="telefono" class="text-gray-700 font-medium">Teléfono</label>
-                  <input [(ngModel)]="cliente.telefono" name="telefono"
-                  type="tel"  id="telefono" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
-              </div>
+            <!-- Formulario -->
+            <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+                <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Crea tu Cuenta</h2>
+                <form (ngSubmit)="RegistroCliente()" class="space-y-5">
 
-              <!-- Dirección -->
-              <div>
-                  <label for="direccion" class="text-gray-700 font-medium">Dirección</label>
-                  <input [(ngModel)]="cliente.direccion" name="direccion"
-                   type="text" id="direccion" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
-              </div>
+                    <!-- Cédula -->
+                    <div>
+                        <label for="cedula" class="text-gray-700 font-medium">Cédula</label>
+                        <input [(ngModel)]="cliente.cedula" name="cedula"
+                            type="text" id="cedula"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                    </div>
 
-              <!-- Fecha de Nacimiento -->
-              <div>
-                  <label for="fecha_nacimiento" class="text-gray-700 font-medium">Fecha de Nacimiento</label>
-                  <input [(ngModel)]="cliente.fechaNacimiento" name="fecha_nacimiento"
-                  type="date"  id="fecha_nacimiento" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
-              </div>
+                    <!-- Nombre -->
+                    <div>
+                        <label for="nombre" class="text-gray-700 font-medium">Nombre Completo</label>
+                        <input [(ngModel)]="cliente.nombre" name="nombre"
+                            type="text" id="nombre"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                    </div>
 
-              <!-- Correo Electrónico -->
-              <div>
-                  <label for="correo" class="text-gray-700 font-medium">Correo Electrónico</label>
-                  <input [(ngModel)]="cliente.correo" name="correo"
-                    type="email" id="correo" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
-              </div>
+                    <!-- Teléfono -->
+                    <div>
+                        <label for="telefono" class="text-gray-700 font-medium">Teléfono</label>
+                        <input [(ngModel)]="cliente.telefono" name="telefono"
+                            type="tel" id="telefono"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                    </div>
 
-              <!-- Botón de Envío -->
-              <button type="submit" class="w-full py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-indigo-500 to-blue-500 hover:shadow-lg transition-all">Registrarse</button>
-          </form>
-      </div>
-  </div>
-</div>
+                    <!-- Dirección -->
+                    <div>
+                        <label for="direccion" class="text-gray-700 font-medium">Dirección</label>
+                        <input [(ngModel)]="cliente.direccion" name="direccion"
+                            type="text" id="direccion"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                    </div>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-white text-center py-4 mt-6">
-  <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
-</footer>
+                    <!-- Fecha de Nacimiento -->
+                    <div>
+                        <label for="fecha_nacimiento" class="text-gray-700 font-medium">Fecha de Nacimiento</label>
+                        <input [(ngModel)]="cliente.fechaNacimiento" name="fecha_nacimiento"
+                            type="date" id="fecha_nacimiento"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+                    <!-- Correo Electrónico -->
+                    <div>
+                        <label for="correo" class="text-gray-700 font-medium">Correo Electrónico</label>
+                        <input [(ngModel)]="cliente.correo" name="correo"
+                            type="email" id="correo"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" required />
+                    </div>
 
+                    <!-- Botón de Envío -->
+                    <button type="submit" class="w-full py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-indigo-500 to-blue-500 hover:shadow-lg transition-all">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-4 mt-6">
+        <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Flowbite JS (si es necesario para interactividad) -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+</body>
+
+</html>
