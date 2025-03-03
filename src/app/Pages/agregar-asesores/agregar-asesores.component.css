@@ -129,10 +129,13 @@ body {
 .footer {
   background: linear-gradient(to right, #1e3a8a, #3730a3);
   color: white;
-  padding: 1.5rem;
-  margin-top: auto;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  margin-top: 20px;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
 }
 .footer-content {
   text-align: center;
 }
+

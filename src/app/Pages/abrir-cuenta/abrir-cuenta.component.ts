@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-abrir-cuenta',
-  templateUrl: './abrir-cuenta.component.html',
+  templateUrl: './abrir-cuenta.component.html',  // Verifica esta ruta
   styleUrls: ['./abrir-cuenta.component.css']
 })
 export default class AbrirCuentaComponent {
