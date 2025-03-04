@@ -7,7 +7,7 @@ export const routes: Routes = [
     path: '',
     component:MainLayoutComponent,
     children: [
-      { path: '', redirectTo: 'Home', pathMatch: 'full' }, 
+      { path: '', redirectTo: 'Home', pathMatch: 'full' },
       { path: 'Home', loadComponent: () => import('./Pages/home/home.component') },
       { path: 'login', loadComponent: () => import('./login/login.component') },
       { path: 'Registro', loadComponent: () => import('./Pages/cliente/cliente.component') },
