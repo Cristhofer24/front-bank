@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Prestabank - Registro</title>
-  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="abrir-cuenta.component.css">
-
-</head>
-<body class="flex flex-col min-h-screen bg-gray-100">
 
   <!-- Navbar -->
   <nav class="bg-blue-700 text-white py-4 px-6 shadow-md">
@@ -30,43 +17,43 @@
 
       <div class="form-section">
         <h2>Registro en Prestabank</h2>
-        <form th:action="@{/guardarCuenta}" th:method="post" th:object="${cuenta}">
+        <form >
           <input type="hidden" th:field="*{id}" id="id">
           <input type="hidden" name="clienteId" th:value="${cuenta.cliente.id}" />
 
           <div class="input-group">
             <label for="tipoCuenta">Tipo de Cuenta</label>
-            <select th:field="*{tipoCuenta}" id="tipoCuenta"
+            <select name="tipoCuenta" id="tipoCuenta"
               onchange="window.location.href='/generarValoresCuenta?tipoCuenta=' + this.value">
               <option value="">Seleccione un tipo de cuenta</option>
-              <option value="Ahorro" th:selected="${cuenta != null && cuenta.tipoCuenta == 'Ahorro'}">Ahorro</option>
-              <option value="Corriente" th:selected="${cuenta != null && cuenta.tipoCuenta == 'Corriente'}">Corriente</option>
+              <option value="Ahorro" >Ahorro</option>
+              <option value="Corriente">Corriente</option>
             </select>
           </div>
 
           <div class="input-group">
             <label for="numeroCuenta">Número de Cuenta</label>
-            <input type="text" th:field="*{numeroCuenta}" id="numeroCuenta" readonly>
+            <input type="text"  id="numeroCuenta" readonly>
           </div>
 
           <div class="input-group">
             <label for="saldo">Saldo</label>
-            <input type="text" th:field="*{saldo}" id="saldo">
+            <input type="text"  id="saldo">
           </div>
 
           <div class="input-group">
             <label for="fechaApertura">Fecha de Apertura</label>
-            <input type="date" th:field="*{fechaApertura}" id="fechaApertura" readonly>
+            <input type="date"  id="fechaApertura" readonly>
           </div>
 
           <div class="input-group">
             <label for="fechaCaducidad">Fecha de Vencimiento</label>
-            <input type="date" th:field="*{fechaCaducidad}" id="fechaCaducidad" readonly>
+            <input type="date"  id="fechaCaducidad" readonly>
           </div>
 
           <div class="input-group">
             <label for="estado">Estado de Cuenta</label>
-            <input type="text" th:field="*{estado}" id="estado" readonly>
+            <input type="text"  id="estado" readonly>
           </div>
 
           <button type="submit" class="register-btn">Registrar</button>
@@ -79,6 +66,4 @@
     <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
   </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-</body>
-</html>
+

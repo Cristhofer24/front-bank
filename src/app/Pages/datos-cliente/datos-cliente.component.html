@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información del Cliente</title>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/app/Pages/datos-cliente/datos-cliente.component.css">
-</head>
-<body class="bg-gray-50 flex flex-col min-h-screen">
 
 <!-- Navbar -->
 <nav class="bg-gradient-to-r from-blue-900 to-indigo-800 p-6 shadow-xl">
@@ -26,10 +15,10 @@
     </div>
 </nav>
 <!-- El Modal de error -->
-<div th:if="${mensajeError}" class="modal" style="display: block;">
+<div  class="modal" style="display: block;" >
     <div class="modal-content">
         <span class="close" onclick="cerrarModal()">&times;</span>
-        <p th:text="${mensajeError}"></p>
+        <p th:text="${mensaje}"></p>
     </div>
 </div>
 <div class="container mx-auto mt-12 p-8 bg-gray-100 rounded-lg shadow-xl max-w-screen-xl">
@@ -46,7 +35,7 @@
         <!-- Saldo Actual -->
         <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <h4 class="text-2xl font-semibold text-blue-800">Saldo Actual</h4>
-            <p class="text-3xl font-bold text-indigo-600 mt-4" th:text="'$'+${dato.saldo}"></p>
+            <p class="text-3xl font-bold text-indigo-600 mt-4" ></p>
         </div>
 
         <!-- Historial de Transacciones -->
@@ -78,14 +67,14 @@
     </div>
 
     <!-- Aplicación móvil -->
-    <div class="relative mt-12 p-8 bg-gray-50 rounded-lg shadow-lg" th:each="dato : ${datos}">
+    <div class="relative mt-12 p-8 bg-gray-50 rounded-lg shadow-lg">
         <div class="absolute inset-0 bg-blue-900 opacity-50 rounded-lg"></div>
         <div class="relative z-10">
             <h3 class="text-2xl font-bold text-white">Prestabank - App Móvil</h3>
             <div class="bg-white mt-6 p-6 rounded-lg shadow-lg">
                 <div class="text-center">
                     <p class="text-sm text-gray-600">Saldo Disponible</p>
-                    <p class="text-3xl font-bold text-blue-900" th:text="'$'+${dato.saldo}"></p>
+                    <p class="text-3xl font-bold text-blue-900" ></p>
                 </div>
                 <div class="mt-8 grid grid-cols-2 gap-4 text-center">
                     <div onclick="openTransferirModal()" class="bg-blue-600 text-white py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 cursor-pointer">
@@ -134,36 +123,36 @@
 <div v-if="isModalOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
     <div class="bg-white p-6 rounded-lg shadow-xl w-96">
         <h3 class="text-2xl font-bold text-blue-800 mb-4">Formulario de Transferencia</h3>
-        <form th:action="@{/GuardarTransaccion(id=${datos.clienteId})}" method="post" th:object="${trasaccion}">
+        <form  method="post" >
 
             <div class="mb-4">
                 <label for="cuentaOrigen" class="block text-sm font-medium text-gray-700">Cuenta de Origen</label>
                 <select id="cuentaOrigen" name="cuentaOrigenId" class="w-full p-3 border border-gray-300 rounded-md mt-2" required
                         onchange="document.getElementById('cuentaOrigenNumero').value = this.options[this.selectedIndex].text;">
                     <option value="">Seleccione una cuenta</option>
-                    <option th:each="cuenta : ${cuentas}" th:value="${cuenta.cuentaId}" th:text="${cuenta.numeroCuenta}"></option>
+                    <option ></option>
                 </select>
                     <input type="hidden" id="cuentaOrigenNumero" name="cuentaOrigenNumero">
             </div>
 
             <div class="mb-4">
                 <label for="cuentaOrigen" class="block text-sm font-medium text-gray-700">Cuenta de Destino</label>
-                <input type="text" th:field="*{CuentaDestino}" id="cuentaDestino" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
+                <input type="text"  id="cuentaDestino" class="w-full p-3 border border-gray-300 rounded-md mt-2" plaseholder="Cuenta de Destino" title="Cuenta de Destino" required >
             </div>
 
             <div class="mb-4">
                 <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
-                <input type="text" th:field="*{descripcion}" id="descripcion" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
+                <input type="text"  id="descripcion" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
             </div>
 
             <div class="mb-4">
                 <label for="monto" class="block text-sm font-medium text-gray-700">Monto</label>
-                <input type="number" th:field="*{monto}" id="monto" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
+                <input type="number"  id="monto" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
             </div>
 
             <div class="mb-4">
                 <label for="fechaEnvio" class="block text-sm font-medium text-gray-700">Fecha de Envío</label>
-                <input type="date" th:field="*{fechaMovimiento}" id="fechaEnvio" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
+                <input type="date"  id="fechaEnvio" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
             </div>
 
             <div class="flex justify-end space-x-4">
@@ -180,21 +169,21 @@
 <div v-if="isRetirarModalOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
     <div class="bg-white p-6 rounded-lg shadow-xl w-96">
         <h3 class="text-2xl font-bold text-blue-800 mb-4">Retirar Dinero</h3>
-        <form th:action="@{/RetirarDinero(id=${datos.clienteId})}" method="post" th:object="${trasaccion}">
+        <form  method="post" >
 
             <div class="mb-4">
                 <label for="cuentaOrigenIdRetiro" class="block text-sm font-medium text-gray-700">Cuenta de Origen</label>
                 <select id="cuentaOrigenIdRetiro" name="cuentaOrigenIdRetiro" class="w-full p-3 border border-gray-300 rounded-md mt-2" required
                         onchange="document.getElementById('cuentaOrigeRetiro').value = this.options[this.selectedIndex].text;">
                     <option value="">Seleccione una cuenta</option>
-                    <option th:each="cuenta : ${cuentas}" th:value="${cuenta.cuentaId}" th:text="${cuenta.numeroCuenta}"></option>
+                    <option ></option>
                 </select>
-                <input type="text" id="cuentaOrigeRetiro" name="cuentaOrigeRetiro">
+                <input type="text" id="cuentaOrigeRetiro" name="cuentaOrigeRetiro" plaseholder="Cuenta de Origen" title="Cuenta de Origen">
             </div>
 
             <div class="mb-4">
                 <label for="montoRetiro" class="block text-sm font-medium text-gray-700">Monto a Retirar</label>
-                <input th:field="*{monto}" type="number" id="montoRetiro" v-model="montoRetiro" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
+                <input  type="number" id="montoRetiro" v-model="montoRetiro" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
             </div>
             <div class="flex justify-end space-x-4">
                 <button type="button" onclick="cerrarRetiroModal()" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancelar</button>
@@ -226,16 +215,16 @@
 <div v-if="isDepositarModalOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
     <div class="bg-white p-6 rounded-lg shadow-xl w-96">
         <h3 class="text-2xl font-bold text-blue-800 mb-4">Depositar Dinero</h3>
-        <form th:action="@{/DepositarDinero(id=${datos.clienteId})}" method="post" th:object="${trasaccion}">
+        <form  method="post" >
 
             <div class="mb-4">
                 <label for="IdcuentaOrigen" class="block text-sm font-medium text-gray-700">Cuenta de Origen</label>
                 <select id="IdcuentaOrigen" name="IdcuentaOrigen" class="w-full p-3 border border-gray-300 rounded-md mt-2" required
                         onchange="document.getElementById('cuentaOrigenDeposito').value = this.options[this.selectedIndex].text;">
                     <option value="">Seleccione una cuenta</option>
-                    <option th:each="cuenta : ${cuentas}" th:value="${cuenta.cuentaId}" th:text="${cuenta.numeroCuenta}"></option>
+                    <option ></option>
                 </select>
-                <input type="text" id="cuentaOrigenDeposito" name="cuentaOrigenDeposito">
+                <input type="text" id="cuentaOrigenDeposito" name="cuentaOrigenDeposito" plaseholder="Cuenta de Origen" title="Cuenta de Origen">
             </div>
 
             <!-- Campo oculto para enviar el ID de la cuenta -->
@@ -243,7 +232,7 @@
             <div class="mb-4">
                 <label for="montoDeposito" class="block text-sm font-medium text-gray-700">Monto a Depositar</label>
                 <!-- Usamos th:field para el monto -->
-                <input type="number" id="montoDeposito" th:field="*{monto}" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
+                <input type="number" id="montoDeposito"  class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
             </div>
 
             <div class="flex justify-end space-x-4">
@@ -258,25 +247,25 @@
 <div v-if="isPagosModalOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
     <div class="bg-white p-6 rounded-lg shadow-xl w-96">
         <h3 class="text-2xl font-bold text-blue-800 mb-4">Realizar Pago</h3>
-        <form th:action="@{/Pagos(id=${datos.clienteId})}" method="post" th:object="${trasaccion}">
+        <form  method="post" >
 
             <div class="mb-4">
                 <label for="IdcuentaOrigenPagos" class="block text-sm font-medium text-gray-700">Cuenta de Origen</label>
                 <select id="IdcuentaOrigenPagos" name="IdcuentaOrigenPagos" class="w-full p-3 border border-gray-300 rounded-md mt-2" required
                         onchange="document.getElementById('cuentaOrigenPagos').value = this.options[this.selectedIndex].text;">
                     <option value="">Seleccione una cuenta</option>
-                    <option th:each="cuenta : ${cuentas}" th:value="${cuenta.cuentaId}" th:text="${cuenta.numeroCuenta}"></option>
+                    <option></option>
                 </select>
-                <input type="text" id="cuentaOrigenPagos" name="cuentaOrigenPagos">
+                <input type="text" id="cuentaOrigenPagos" name="cuentaOrigenPagos" placeholder="Cuenta de Origen" title="Cuenta de Origen">
             </div>
 
             <div class="mb-4">
                 <label for="montoPago" class="block text-sm font-medium text-gray-700">Monto a Pagar</label>
-                <input th:field="*{monto}"  type="number" id="montoPago" v-model="montoPago" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
+                <input   type="number" id="montoPago" v-model="montoPago" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
             </div>
             <div class="mb-4">
                 <label for="descripcionPago" class="block text-sm font-medium text-gray-700">Descripción</label>
-                <input th:field="*{descripcion}"   type="text" id="descripcionPago" v-model="descripcionPago" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
+                <input    type="text" id="descripcionPago" v-model="descripcionPago" class="w-full p-3 border border-gray-300 rounded-md mt-2" required>
             </div>
             <div class="flex justify-end space-x-4">
                 <button type="button" onclick="cerrarPagoModal()"class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancelar</button>
@@ -418,5 +407,3 @@
     app.mount('body');
 </script>
 
-</body>
-</html>

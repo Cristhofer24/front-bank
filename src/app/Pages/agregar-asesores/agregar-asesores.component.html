@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="es" >
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Gestión de Clientes - Prestabank</title>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/app/Pages/agregar-asesores/agregar-asesores.component.css">
-</head>
-<body class="bg-gray-50 flex flex-col min-h-screen">
 
 <!-- Navbar -->
 <nav class="bg-gradient-to-r from-blue-900 to-indigo-800 p-6 shadow-xl">
@@ -17,7 +5,7 @@
         <h1 class="text-3xl font-extrabold text-white">Prestabank</h1>
         <ul class="flex space-x-8 text-white font-semibold">
             <li>
-                <form th:action="@{/logout}" method="post" id="logout-form">
+                <form  method="post" id="logout-form">
                     <button type="submit" class="hover:text-gray-200 transition-colors focus:outline-none">
                         Cerrar Sesión
                     </button>
@@ -32,7 +20,7 @@
   <h1 class="main-title text-3xl font-bold text-blue-700 mb-6 text-center">Gestión de Clientes</h1>
   <!-- Botones de Acción -->
   <div class="button-container flex justify-between mb-8">
-      <a th:href="@{registroCuenta}" class="create-client-button bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300">
+      <a  class="create-client-button bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300">
           Crear Cliente
       </a>
       <button class="assign-role-button bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300">
@@ -55,7 +43,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr class="table-row bg-gray-50 hover:bg-gray-200 transition-colors duration-300" th:each="cliente : ${clientes}">
+              <tr class="table-row bg-gray-50 hover:bg-gray-200 transition-colors duration-300">
                   <td class="table-cell py-3 px-4" th:text="${cliente.id}"></td>
                   <td class="table-cell py-3 px-4" th:text="${cliente.cedula}"></td>
                   <td class="table-cell py-3 px-4" th:text="${cliente.nombre}"></td>
@@ -66,7 +54,7 @@
                       <a th:href="@{/editarCliente/{id}(id=${cliente.id})}" class="edit-button bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-1 px-3 rounded-md transition-all duration-300">
                           Editar
                       </a>
-                      <form th:action="@{/eliminarCliente/{id}(id=${cliente.id})}" method="post" class="inline">
+                      <form method="post" class="inline">
                           <button type="submit" class="delete-button bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 rounded-md transition-all duration-300 ml-2" onclick="return confirm('¿Estás seguro de eliminar este cliente?');">
                               Eliminar
                           </button>
@@ -130,5 +118,3 @@
     </div>
   </footer>
 
-</body>
-</html>
