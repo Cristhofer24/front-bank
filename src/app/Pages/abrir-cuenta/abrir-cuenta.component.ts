@@ -21,10 +21,11 @@ export default class AbrirCuentaComponent implements OnInit {
     private cuentaService: CuentaService,
     private router: Router
   ) { }
+
+  //Inicializa para poder obtener el clienteId tanto el la url como en el input 
   ngOnInit(): void {
     const clienteId = this.route.snapshot.paramMap.get('clienteId');
     console.log("clienteId obtenido de la URL:", clienteId);  // Depuración
-
     if (clienteId) {
       this.clienteId = +clienteId;
       this.cuenta.fkCliente = this.clienteId;  // Asigna el clienteId a la cuenta
@@ -35,9 +36,6 @@ export default class AbrirCuentaComponent implements OnInit {
   }
 
   crearCuenta(): void {
-    if (this.clienteId) {
-      this.cuenta.fkCliente = this.clienteId;
-
       this.cuentaService.createCuenta(this.cuenta).subscribe(
         (response: any) => {
           console.log("Cuenta creada con éxito:", response);
@@ -47,8 +45,6 @@ export default class AbrirCuentaComponent implements OnInit {
           console.error("Error al crear cuenta:", error);
         }
       );
-    } else {
-      console.error("Error: clienteId no está disponible.");
     }
   }
-}
+
