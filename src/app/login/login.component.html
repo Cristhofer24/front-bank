@@ -1,50 +1,36 @@
+<header class="header-title">
+  <h1 class="title">Bienvenido a tu Banca Virtual</h1>
+  <p class="subtitle">Tu banco en línea, siempre a tu alcance.</p>
+</header>
 
 <div class="container">
   <div class="left">
     <div class="form">
       <h1>Iniciar Sesión</h1>
-      <link rel="stylesheet" href="registro-empleado/registro-empleado.component.css">
-
-
-      <form id="login-form" th:action="@{/login}" method="post" th:object="${login}">
-
-
-
+      <form id="login-form" method="post">
         <div class="input-block">
-          <input th:field="*{username}"  type="text" id="email" class="input" placeholder=" " required>
-          <label for="email">Usuario</label>
+          <input type="text" id="email" class="input" placeholder=" " required>
+          <label for="email">Correo Electrónico</label>
         </div>
-
         <div class="input-block">
-          <input th:field="*{password}" type="password" id="password" class="input" placeholder=" " required>
+          <input type="password" id="password" class="input" placeholder=" " required>
           <label for="password">Contraseña</label>
         </div>
-
-        <button type="submit">Iniciar Sesión</button>
-        <div id="error-msg">Por favor, completa todos los campos.</div>
+        <button type="submit" class="submit-btn">Iniciar Sesión</button>
+        <div class="register">
+          <p>¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+        </div>
       </form>
-
-      <div class="register">
-        <p>¿No tienes cuenta? <a href="#">Regístrate</a></p>
-      </div>
     </div>
   </div>
-  <div class="right"></div>
+  <div class="right">
+    <div class="overlay">
+      <h2>Bienvenido a Prestabank</h2>
+      <p>Inicia sesión para acceder a tus cuentas y disfrutar de nuestros servicios financieros.</p>
+    </div>
+  </div>
 </div>
 
-<script>
-  // Validación básica del formulario
-  document.getElementById('login-form').addEventListener('submit', function (event) {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-    const errorMsg = document.getElementById('error-msg');
-
-    if (email === '' || password === '') {
-      event.preventDefault(); // Evita que el formulario se envíe
-      errorMsg.style.display = 'block'; // Muestra el mensaje de error
-    } else {
-      errorMsg.style.display = 'none'; // Oculta el mensaje de error
-    }
-  });
-</script>
-
+<footer class="bg-gray-900 text-white text-center py-6 mt-8 animate-fade-in">
+  <p class="text-lg font-medium">&copy; 2025 Prestabank. Todos los derechos reservados.</p>
+</footer>

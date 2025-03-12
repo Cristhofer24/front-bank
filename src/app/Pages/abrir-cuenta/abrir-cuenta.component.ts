@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CuentaService } from '../../Services/cuenta.service';
 import { catchError, of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-abrir-cuenta',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './abrir-cuenta.component.html',  // Verifica esta ruta
   styleUrls: ['./abrir-cuenta.component.css']
 })
@@ -16,7 +17,7 @@ export default class AbrirCuentaComponent  implements OnInit {
   clienteId?: number;
 
   cuenta: Cuenta = {
-    fkCliente:{}
+    fkCliente: {}
   };
 
   constructor(
@@ -25,17 +26,25 @@ export default class AbrirCuentaComponent  implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    const clienteId = this.route.snapshot.paramMap.get('clienteId');
-    console.log("clienteId obtenido de la URL:", clienteId);
-    if (clienteId && !isNaN(+clienteId)) {
-      this.clienteId = +clienteId;
-      this.cuenta.fkCliente.clienteId = this.clienteId;
-      console.log("clienteId asignado a cuenta.fkCliente:", this.cuenta.fkCliente);
-    } else {
-      console.error("Error: No se encontró un clienteId válido en la URL.");
+
+    ngOnInit(): void {
+      const clienteId = this.route.snapshot.paramMap.get('clienteId');
+      console.log("clienteId obtenido de la URL:", clienteId);
+
+      if (clienteId && !isNaN(+clienteId)) {
+        this.clienteId = +clienteId;
+
+        // Asegurar que cuenta.fkCliente está inicializado
+        if (!this.cuenta.fkCliente) {
+          this.cuenta.fkCliente = { clienteId: this.clienteId };
+        } else {
+          this.cuenta.fkCliente.clienteId = this.clienteId;
+        }
+
+        console.log("clienteId asignado a cuenta.fkCliente:", this.cuenta.fkCliente.clienteId);
+      }
     }
-  }
+
 
   enviarDatos() {
     this.cuentaService.createCuenta(this.cuenta)
@@ -47,8 +56,8 @@ export default class AbrirCuentaComponent  implements OnInit {
       )
       .subscribe(response => {
         if (response) {
-          this.router.navigate(['/confirmarCuenta', response.cuentaId]);
           console.log('Cuenta creada con éxito', response);
+          this.router.navigate(['/ConfirmarCuenta', response.cuentaId]);
         } else {
           console.log('No se pudo crear la cuenta');
         }

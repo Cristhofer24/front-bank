@@ -5,8 +5,64 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+ /* Animación de blobs flotantes */
+  @keyframes blob {
+    0% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-20px) scale(1.1); }
+    50% { transform: translateY(0) scale(1); }
+    75% { transform: translateY(20px) scale(0.9); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+  }
 
-/* Navbar */
+  @keyframes border-reveal {
+    to {
+      width: 100%;
+    }
+  }
+
+  /* Efecto de flotación */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  /* Efecto de pulso lento */
+  @keyframes pulse-slow {
+    0% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+    100% { opacity: 0.3; transform: scale(1); }
+  }
+  @keyframes text-reveal {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes blob {
+    0% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-20px) scale(1.1); }
+    50% { transform: translateY(0) scale(1); }
+    75% { transform: translateY(20px) scale(0.9); }
+  }
+
+  @keyframes text-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse-slow {
+    0% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+    100% { opacity: 0.3; transform: scale(1); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+  }
+
 .navbar {
   background-color: #1a365d;
   padding: 1rem;
@@ -39,7 +95,6 @@ body {
   color: #d1d5db;
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;

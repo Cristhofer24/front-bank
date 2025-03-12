@@ -11,11 +11,14 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'Home', pathMatch: 'full' },
       { path: 'Home', loadComponent: () => import('./Pages/home/home.component') },
+      { path: 'login', loadComponent: () => import('./login/login.component') },
+      { path: 'Home', loadComponent: () => import('./Pages/home/home.component') },
       { path: 'Registro', loadComponent: () => import('./Pages/cliente/cliente.component') },
-      { path: 'Gestor_Roles',loadComponent: () => import('./Pages/gestor-roles/gestor-roles.component') },
-      {path:  'Crear_Roles', loadComponent: () => import('./Pages/crear-roles/crear-roles.component')},
+      { path: 'Gestor de Roles',loadComponent: () => import('./Pages/gestor-roles/gestor-roles.component') },
+      {path: 'Datos Cliente', loadComponent: () => import('./Pages/datos-cliente/datos-cliente.component')},
+      {path:  'Crear Roles', loadComponent: () => import('./Pages/crear-roles/crear-roles.component')},
       {path: 'ConfirmarCuenta/:clienteId', loadComponent: () => import('./Pages/confirmar-cuenta/confirmar-cuenta.component')},
-      {path: 'Agregar_Asesores', loadComponent: () => import('./Pages/agregar-asesores/agregar-asesores.component')},
+      {path: 'Agregar Asesores', loadComponent: () => import('./Pages/agregar-asesores/agregar-asesores.component')},
       {path: 'CrearCuenta/:clienteId', loadComponent: () => import('./Pages/abrir-cuenta/abrir-cuenta.component')},
     ]
   },

@@ -6,7 +6,7 @@ export interface Cuenta {
   fechaApertura?: string;
   fechaCaducidad?: string;
   estado?: string;
-  fkCliente:{
-     clienteId?: number
-     };
+  fkCliente: {
+    clienteId?: number;
+  };
 }

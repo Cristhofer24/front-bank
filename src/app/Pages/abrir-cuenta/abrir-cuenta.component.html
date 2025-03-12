@@ -9,55 +9,50 @@
         </div>
       </div>
 
-      <div class="form-section">
+      <div class="form-section" >
         <h2>Registro en Prestabank</h2>
-        <form (ngSubmit)="enviarDatos()">
-          <!-- ID del Cliente -->
-          <!-- <input type="text" id="id" [(ngModel)]="cuenta.cuentaId" name="id" readonly> -->
-          <input type="text" id="clienteId" name="clienteId" placeholder="ID del Cliente" [(ngModel)]="cuenta.fkCliente.clienteId" readonly>
+        <form (ngSubmit)="enviarDatos()" >
+          <input type="hidden" id="id">
 
-          <!-- Tipo de Cuenta -->
-          <div class="input-group">
-            <label for="tipoCuenta">Tipo de Cuenta</label>
-            <select name="tipoCuenta" id="tipoCuenta" [(ngModel)]="cuenta.tipoCuenta" (change)="onTipoCuentaChange($event)">
-              <option value="">Seleccione un tipo de cuenta</option>
-              <option value="AHORRO">AHORRO</option>
-              <option value="CORRIENTE">CORRIENTE</option>
-            </select>
-          </div>
-          
+        <div class="input-group">
+          <label for="clienteId">ID del Cliente</label>
+          <input type="text" id="clienteId" name="clienteId" [(ngModel)]="cuenta.fkCliente.clienteId" readonly />
+        </div>
 
-          <!-- Número de Cuenta -->
-          <div class="input-group">
-            <label for="numeroCuenta">Número de Cuenta</label>
-            <input type="text" id="numeroCuenta" [(ngModel)]="cuenta.numeroCuenta" name="numeroCuenta" readonly>
-          </div>
+        <div class="input-group">
+          <label for="tipoCuenta">Tipo de Cuenta</label>
+          <select name="tipoCuenta" id="tipoCuenta" [(ngModel)]="cuenta.tipoCuenta" (change)="onTipoCuentaChange($event)">
+            <option value="">Seleccione un tipo de cuenta</option>
+            <option value="Ahorro">Ahorro</option>
+            <option value="Corriente">Corriente</option>
+          </select>
+        </div>
 
-          <!-- Saldo -->
-          <div class="input-group">
-            <label for="saldo">Saldo</label>
-            <input type="text" id="saldo" [(ngModel)]="cuenta.saldo" name="saldo" placeholder="Ingrese un valor por favor ">
-          </div>
+        <div class="input-group">
+          <label for="numeroCuenta">Número de Cuenta</label>
+          <input type="text" id="numeroCuenta" name="numeroCuenta" [(ngModel)]="cuenta.numeroCuenta" readonly />
+        </div>
 
-          <!-- Fecha de Apertura -->
-          <div class="input-group">
-            <label for="fechaApertura">Fecha de Apertura</label>
-            <input type="date" id="fechaApertura" [(ngModel)]="cuenta.fechaApertura" name="fechaApertura" readonly>
-          </div>
+        <div class="input-group">
+          <label for="saldo">Saldo</label>
+          <input type="text" id="saldo" name="saldo" [(ngModel)]="cuenta.saldo" />
+        </div>
 
-          <!-- Fecha de Vencimiento -->
-          <div class="input-group">
-            <label for="fechaCaducidad">Fecha de Vencimiento</label>
-            <input type="date" id="fechaCaducidad" [(ngModel)]="cuenta.fechaCaducidad" name="fechaCaducidad" readonly>
-          </div>
+        <div class="input-group">
+          <label for="fechaApertura">Fecha de Apertura</label>
+          <input type="date" id="fechaApertura" name="fechaApertura" [(ngModel)]="cuenta.fechaApertura" readonly />
+        </div>
 
-          <!-- Estado de Cuenta -->
-          <div class="input-group">
-            <label for="estado">Estado de Cuenta</label>
-            <input type="text" id="estado" [(ngModel)]="cuenta.estado" name="estado" readonly>
-          </div>
+        <div class="input-group">
+          <label for="fechaCaducidad">Fecha de Vencimiento</label>
+          <input type="date" id="fechaCaducidad" name="fechaCaducidad" [(ngModel)]="cuenta.fechaCaducidad" readonly />
+        </div>
 
-          <!-- Botón de Registrar -->
+        <div class="input-group">
+          <label for="estado">Estado de Cuenta</label>
+          <input type="text" id="estado" name="estado" [(ngModel)]="cuenta.estado" readonly />
+        </div>
+
           <button type="submit" class="register-btn">Registrar</button>
         </form>
       </div>
