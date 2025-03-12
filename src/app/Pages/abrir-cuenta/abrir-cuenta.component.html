@@ -1,71 +1,67 @@
 
+<body>
 
-  <div class="main-container">
-    <div class="form-container">
-      <div class="image-section">
-        <div class="overlay">
-          <h2>Únete a Prestabank</h2>
-          <p>Aprovecha todos los beneficios financieros que tenemos para ti.</p>
-        </div>
-      </div>
+    <div class="main-container">
+        <div class="form-container">
+          <img src="assets/img/images.jpg" alt="Imagen de banco" class="image-section">
 
-      <div class="form-section">
-        <h2>Registro en Prestabank</h2>
-        <form (ngSubmit)="enviarDatos()">
-          <!-- ID del Cliente -->
-          <!-- <input type="text" id="id" [(ngModel)]="cuenta.cuentaId" name="id" readonly> -->
-          <input type="text" id="clienteId" name="clienteId" placeholder="ID del Cliente" [(ngModel)]="cuenta.fkCliente.clienteId" readonly>
-
-          <!-- Tipo de Cuenta -->
-          <div class="input-group">
-            <label for="tipoCuenta">Tipo de Cuenta</label>
-            <select name="tipoCuenta" id="tipoCuenta" [(ngModel)]="cuenta.tipoCuenta" (change)="onTipoCuentaChange($event)">
-              <option value="">Seleccione un tipo de cuenta</option>
-              <option value="AHORRO">AHORRO</option>
-              <option value="CORRIENTE">CORRIENTE</option>
-            </select>
+                <div class="overlay">
+                    <h2>Únete a Prestabank</h2>
+                    <p>Aprovecha todos los beneficios financieros que tenemos para ti.</p>
+                </div>
+                <div class="form-section">
+                  <h2>Registro en Prestabank</h2>
+                  <form (ngSubmit)="enviarDatos()">
+                      
+                      <input type="text" id="clienteId" name="clienteId" placeholder="ID del Cliente" [(ngModel)]="cuenta.fkCliente.clienteId" readonly>
+  
+                      <div class="input-group">
+                          <label for="tipoCuenta">Tipo de Cuenta</label>
+                          <select name="tipoCuenta" id="tipoCuenta" [(ngModel)]="cuenta.tipoCuenta" (change)="onTipoCuentaChange($event)">
+                              <option value="">Seleccione un tipo de cuenta</option>
+                              <option value="AHORRO">AHORRO</option>
+                              <option value="CORRIENTE">CORRIENTE</option>
+                          </select>
+                      </div>
+                      
+                      <div class="input-group">
+                          <label for="numeroCuenta">Número de Cuenta</label>
+                          <input type="text" id="numeroCuenta" [(ngModel)]="cuenta.numeroCuenta" name="numeroCuenta" readonly>
+                      </div>
+  
+                      <div class="input-group">
+                          <label for="saldo">Saldo</label>
+                          <input type="text" id="saldo" [(ngModel)]="cuenta.saldo" name="saldo" placeholder="Ingrese un valor por favor">
+                      </div>
+  
+                      <div class="input-group">
+                          <label for="fechaApertura">Fecha de Apertura</label>
+                          <input type="date" id="fechaApertura" [(ngModel)]="cuenta.fechaApertura" name="fechaApertura" readonly>
+                      </div>
+  
+                      <div class="input-group">
+                          <label for="fechaCaducidad">Fecha de Vencimiento</label>
+                          <input type="date" id="fechaCaducidad" [(ngModel)]="cuenta.fechaCaducidad" name="fechaCaducidad" readonly>
+                      </div>
+  
+                      <div class="input-group">
+                          <label for="estado">Estado de Cuenta</label>
+                          <input type="text" id="estado" [(ngModel)]="cuenta.estado" name="estado" readonly>
+                      </div>
+  
+                      <button type="submit" class="register-btn">Registrar</button>
+                  </form>
+              </div>
           </div>
-          
+      
+  
+            </div>
+            
 
-          <!-- Número de Cuenta -->
-          <div class="input-group">
-            <label for="numeroCuenta">Número de Cuenta</label>
-            <input type="text" id="numeroCuenta" [(ngModel)]="cuenta.numeroCuenta" name="numeroCuenta" readonly>
-          </div>
+            
+    <footer>
+        <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
+    </footer>
 
-          <!-- Saldo -->
-          <div class="input-group">
-            <label for="saldo">Saldo</label>
-            <input type="text" id="saldo" [(ngModel)]="cuenta.saldo" name="saldo" placeholder="Ingrese un valor por favor ">
-          </div>
-
-          <!-- Fecha de Apertura -->
-          <div class="input-group">
-            <label for="fechaApertura">Fecha de Apertura</label>
-            <input type="date" id="fechaApertura" [(ngModel)]="cuenta.fechaApertura" name="fechaApertura" readonly>
-          </div>
-
-          <!-- Fecha de Vencimiento -->
-          <div class="input-group">
-            <label for="fechaCaducidad">Fecha de Vencimiento</label>
-            <input type="date" id="fechaCaducidad" [(ngModel)]="cuenta.fechaCaducidad" name="fechaCaducidad" readonly>
-          </div>
-
-          <!-- Estado de Cuenta -->
-          <div class="input-group">
-            <label for="estado">Estado de Cuenta</label>
-            <input type="text" id="estado" [(ngModel)]="cuenta.estado" name="estado" readonly>
-          </div>
-
-          <!-- Botón de Registrar -->
-          <button type="submit" class="register-btn">Registrar</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
-  </footer>
-
+</body>
 

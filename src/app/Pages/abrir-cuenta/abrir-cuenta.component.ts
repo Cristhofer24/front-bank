@@ -12,6 +12,7 @@ import { catchError, of } from 'rxjs';
   templateUrl: './abrir-cuenta.component.html',  // Verifica esta ruta
   styleUrls: ['./abrir-cuenta.component.css']
 })
+
 export default class AbrirCuentaComponent  implements OnInit {
   clienteId?: number;
 

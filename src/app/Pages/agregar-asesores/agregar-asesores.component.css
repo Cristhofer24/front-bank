@@ -1,55 +1,53 @@
+
+
 /* Estilos generales */
 body {
-  background-color: #f9fafb;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Navbar */
-.navbar {
-  background: linear-gradient(to right, #1e3a8a, #3730a3);
-  padding: 1.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-.navbar h1 {
-  font-size: 1.875rem;
-  font-weight: 800;
-  color: white;
-}
-.logout-button {
-  color: white;
-  transition: color 0.3s;
-}
-.logout-button:hover {
-  color: #e5e7eb;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
 }
 
 /* Contenedor principal */
 .main-container {
-  max-width: 1200px;
-  margin: 2.5rem auto;
-  padding: 2rem;
   background-color: white;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-.main-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 2rem;
-  background: linear-gradient(to right, #1e3a8a, #3730a3);
-  /* -webkit-background-clip: text; */
-  -webkit-text-fill-color: transparent;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 1000px;
 }
 
-/* Botones de acción */
+/* Títulos */
+.main-title, .section-title {
+  text-align: center;
+  color: #1e40af;
+  font-weight: bold;
+}
+
+.main-title {
+  font-size: 24px;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/* Botones */
 .button-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
+}
+
+.create-client-button, .assign-role-button, .edit-button, .delete-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 .create-client-button,
 .assign-role-button {
@@ -62,80 +60,64 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-.create-client-button:hover,
-.assign-role-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-}
 
 /* Tablas */
 .table-container {
   overflow-x: auto;
-  border-radius: 1rem;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
 }
-.client-table,
-.transaction-table {
+
+table {
   width: 100%;
   border-collapse: collapse;
 }
-.table-header {
-  background: linear-gradient(to right, #1e3a8a, #3730a3);
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #2563eb;
   color: white;
 }
-.table-row {
-  background-color: #f9fafb;
-  transition: background-color 0.3s ease;
+
+tr:hover {
+  background-color: #f1f5f9;
 }
-.table-row:hover {
-  background-color: #e5e7eb;
-}
-.table-cell {
-  padding: 1rem;
-  border: 1px solid #e5e7eb;
-  text-align: left;
-}
+
+/* Botones de acción en la tabla */
 .actions-cell {
   display: flex;
-  gap: 0.5rem;
+  gap: 10px;
 }
-.edit-button,
-.delete-button {
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-}
+
 .edit-button {
-  background: #facc15;
-  color: #92400e;
+  background-color: #facc15;
+  color: black;
 }
-.edit-button:hover {
-  background: #f59e0b;
-  color: white;
-}
+
 .delete-button {
-  background: #ef4444;
-  color: #7f1d1d;
-}
-.delete-button:hover {
-  background: #dc2626;
+  background-color: #dc2626;
   color: white;
+}
+
+.edit-button:hover {
+  background-color: #d97706;
+}
+
+.delete-button:hover {
+  background-color: #b91c1c;
 }
 
 /* Footer */
 .footer {
-  background: linear-gradient(to right, #1e3a8a, #3730a3);
+  background: linear-gradient(to right, #2563eb, #4338ca);
   color: white;
   text-align: center;
-  padding: 12px 0;
-  font-size: 14px;
-  margin-top: 20px;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+  margin-top: 40px;
 }
-.footer-content {
-  text-align: center;
-}
-
