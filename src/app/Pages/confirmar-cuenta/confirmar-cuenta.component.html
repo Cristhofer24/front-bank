@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
     <!-- Navbar -->
     <nav class="bg-blue-900 p-4 text-white shadow-md">
@@ -89,3 +90,62 @@
       <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
     </footer>
 
+=======
+<body>
+  <div class="flex-container">
+    <div class="text-center mt-12 mb-8">
+      <h2 class="text-center">Confirma tu nueva cuenta Prestabank</h2>
+    </div>
+
+    <!-- Bank Card -->
+    <div class="tarjeta">
+
+      <img src="img/logo_blanco.png" alt="Prestabank" class="logo-prestabank">
+      <div class="icono">
+        <svg class="icono-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 10h18M3 14h18M6 6h0m0 12h0m12-12h0m0 12h0" />
+
+        </svg>
+
+      </div>
+
+      <div class="tarjeta-datos">
+        <div class="dato">
+          <div class="chip"></div>
+          <div class="label">Número de Cuenta</div>
+          <div class="valor" th:text="${cuenta.numeroCuenta}">1234 5678 9876 5432</div>
+          <img src="img/visa-banca.png" alt="Visa" class="logo-visa">
+        </div>
+
+        <div class="dato">
+          <div class="label">Cliente</div>
+          <div class="valor" th:text="${cuenta.nombreCliente}">Nombre del Cliente</div>
+        </div>
+
+        <div class="tarjeta-footer">
+          <div class="dato">
+            <div class="label">Fecha de Vencimiento</div>
+            <div class="valor" th:text="${cuenta.fechaCaducidad}">12/2027</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Accept Button -->
+    <div class="mt-8">
+      <a href="#">
+        <button class="mt-8">Aceptar</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
+  </footer>
+</body>
+>>>>>>> a66ad961c1fa3a9ef36dfd58f789740dbdc4da80

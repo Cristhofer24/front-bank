@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CuentaService } from '../../Services/cuenta.service';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-abrir-cuenta',
