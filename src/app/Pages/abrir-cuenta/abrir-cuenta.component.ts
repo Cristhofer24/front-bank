@@ -42,11 +42,12 @@ export default class AbrirCuentaComponent  implements OnInit {
       .pipe(
         catchError(error => {
           console.error('Error al crear cuenta', error);
-          return of(null); 
+          return of(null);
         })
       )
       .subscribe(response => {
         if (response) {
+          this.router.navigate(['/confirmarCuenta', response.cuentaId]);
           console.log('Cuenta creada con éxito', response);
         } else {
           console.log('No se pudo crear la cuenta');

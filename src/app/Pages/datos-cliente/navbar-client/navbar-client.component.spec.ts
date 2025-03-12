@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import  ConfirmarCuentaComponent  from './confirmar-cuenta.component';
+import { NavbarClientComponent } from './navbar-client.component';
 
-describe('ConfirmarCuentaComponent', () => {
-  let component: ConfirmarCuentaComponent;
-  let fixture: ComponentFixture<ConfirmarCuentaComponent>;
+describe('NavbarClientComponent', () => {
+  let component: NavbarClientComponent;
+  let fixture: ComponentFixture<NavbarClientComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ConfirmarCuentaComponent]
+      imports: [NavbarClientComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ConfirmarCuentaComponent);
+    fixture = TestBed.createComponent(NavbarClientComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
