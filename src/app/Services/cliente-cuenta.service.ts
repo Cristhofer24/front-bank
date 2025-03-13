@@ -14,5 +14,9 @@ export class ClienteCuentaService {
    return this.http.get<any[]>(`${this.ApiUrl}/ObtenerCuentas?id=${id}`)
   }
 
+ obtnerDatosbyId(id:number):Observable<any[]>{
+    return this.http.get<any[]>(`${this.ApiUrl}/ObtenerCuentasTodos?id=${id}`)
+   }
+
 
 }

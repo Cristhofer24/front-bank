@@ -396,3 +396,21 @@
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+<div class="mb-4" *ngIf="transferVisible">
+  <label for="fechaEnvio" class="block text-sm font-medium text-gray-700">Fecha de Envío</label>
+  <input type="date"  id="fechaEnvio" class="w-full p-3 border border-gray-300 rounded-md mt-2" [(ngModel)]="movimiento.fechaMovimiento" required>
+</div>
+
+<div class="flex justify-end space-x-4">
+  <button type="button" (click)="closeModal()" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancelar</button>
+  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">{{ButtonName}}</button>
+</div>

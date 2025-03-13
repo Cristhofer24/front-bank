@@ -1,0 +1,110 @@
+<!-- Modal de Transferencia -->
+<div *ngIf="ShowModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white p-6 rounded-lg shadow-xl w-98 "[ngClass]="{
+  'w-98':tableVisible,
+  'w-96':!tableVisible,}"  >
+    <h3 class="text-2xl font-bold text-blue-800 mb-4" >{{Title}}</h3>
+    <input type="hidden" [(ngModel)]="movimiento.tipoMovimiento"/>
+    <div *ngIf="errorMessage" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+      <strong class="font-bold">¡Error!</strong>
+      <span class="block sm:inline">{{ errorMessage }}</span>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+      <!-- Tabla de selección de cuenta -->
+      <div *ngIf="tableVisible" class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3">Seleccionar</th>
+              <th scope="col" class="px-6 py-3">ID</th>
+              <th scope="col" class="px-6 py-3">Tipo de Cuenta</th>
+              <th scope="col" class="px-6 py-3">Numero de Cuenta</th>
+              <th scope="col" class="px-6 py-3">Saldo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cuenta of cuentas" class="bg-white border-b">
+              <td class="px-6 py-4">
+                <input type="radio" name="cuentaSeleccionada" [value]="cuenta.cuentaId"
+                  (change)="onSelect(cuenta)">
+              </td>
+              <td class="px-6 py-4">{{ cuenta.cuentaId }}</td>
+              <td class="px-6 py-4">{{ cuenta.tipoCuenta }}</td>
+              <td class="px-6 py-4">{{ cuenta.numeroCuenta }}</td>
+              <td class="px-6 py-4"> $ {{ cuenta.saldo | number: '1.2-2' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div *ngIf="transferVisible" class="mb-4">
+        <label for="cuentaOrigen" class="block text-sm font-medium text-gray-700">Cuenta de Origen</label>
+        <input type="text"
+          id="cuentaOrigen"
+          name="cuentaOrigen"
+          class="w-full p-3 border border-gray-300 rounded-md mt-2"
+          placeholder="Cuenta de Origen"
+          [(ngModel)]="movimiento.cuentaOrigen"
+
+         />
+        <input type="hidden"
+          id="cuentaId"
+          name="cuentaId"
+          [(ngModel)]="movimiento.fkCuenta.cuentaId"
+         />
+      </div>
+
+      <div *ngIf="inputVisible" class="mb-4" >
+        <label for="cuentaDestino" class="block text-sm font-medium text-gray-700">Cuenta de Destino</label>
+        <input  type="text"
+         id="cuentaDestino"
+         name="cuentaDestino"
+         placeholder="Cuenta de Destino"
+        class="w-full p-3 border border-gray-300 rounded-md mt-2"
+         [(ngModel)]="movimiento.cuentaDestino"
+          required >
+    </div>
+
+    <div *ngIf="inputVisible2" class="mb-4" >
+      <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
+      <input type="text"
+      id="descripcion"
+      name="descripcion"
+      placeholder="Descripción"
+      class="w-full p-3 border border-gray-300 rounded-md mt-2"
+       [(ngModel)]="movimiento.descripcion" required>
+  </div>
+
+  <div class="mb-4" *ngIf="transferVisible">
+    <label for="monto" class="block text-sm font-medium text-gray-700">Monto</label>
+    <input type="text"
+    id="monto"
+    name="monto"
+    placeholder="Monto $0.00"
+    class="w-full p-3 border border-gray-300 rounded-md mt-2"
+    [(ngModel)]="movimiento.monto" required>
+  </div>
+
+
+  <div class="mb-4" *ngIf="transferVisible">
+    <label for="fechaEnvio" class="block text-sm font-medium text-gray-700">Fecha de Envío</label>
+    <input type="date"
+    id="fechaEnvio"
+    name="fechaEnvio"
+    placeholder="Fecha de Transferencia"
+    class="w-full p-3 border border-gray-300 rounded-md mt-2"
+     [(ngModel)]="movimiento.fechaMovimiento" required>
+  </div>
+
+
+      <div class="flex justify-end space-x-4">
+        <button type="button" (click)="closeModal()" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancelar</button>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">{{ButtonName}}</button>
+      </div>
+    </form>
+  </div>
+
+<app-alert
+[ShowModal]="visibleAlert"
+/>

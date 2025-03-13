@@ -1,63 +1,62 @@
-
-<body>
-
-    <div class="main-container">
-        <div class="form-container">
-          <img src="./assets/img/images.jpg" alt="Imagen de banco" class="image-section">
-
-      <div class="form-section" >
-        <h2>Registro en Prestabank</h2>
-        <form (ngSubmit)="enviarDatos()" >
-          <input type="hidden" id="id">
-
-        <div class="input-group">
-          <label for="clienteId">ID del Cliente</label>
-          <input type="text" id="clienteId" name="clienteId" [(ngModel)]="cuenta.fkCliente.clienteId" readonly />
-        </div>
-
-        <div class="input-group">
-          <label for="tipoCuenta">Tipo de Cuenta</label>
-          <select name="tipoCuenta" id="tipoCuenta" [(ngModel)]="cuenta.tipoCuenta" (change)="onTipoCuentaChange($event)">
-            <option value="">Seleccione un tipo de cuenta</option>
-            <option value="Ahorro">Ahorro</option>
-            <option value="Corriente">Corriente</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="numeroCuenta">Número de Cuenta</label>
-          <input type="text" id="numeroCuenta" name="numeroCuenta" [(ngModel)]="cuenta.numeroCuenta" readonly />
-        </div>
-
-        <div class="input-group">
-          <label for="saldo">Saldo</label>
-          <input type="text" id="saldo" name="saldo" [(ngModel)]="cuenta.saldo" />
-        </div>
-
-        <div class="input-group">
-          <label for="fechaApertura">Fecha de Apertura</label>
-          <input type="date" id="fechaApertura" name="fechaApertura" [(ngModel)]="cuenta.fechaApertura" readonly />
-        </div>
-
-        <div class="input-group">
-          <label for="fechaCaducidad">Fecha de Vencimiento</label>
-          <input type="date" id="fechaCaducidad" name="fechaCaducidad" [(ngModel)]="cuenta.fechaCaducidad" readonly />
-        </div>
-
-        <div class="input-group">
-          <label for="estado">Estado de Cuenta</label>
-          <input type="text" id="estado" name="estado" [(ngModel)]="cuenta.estado" readonly />
-        </div>
-
-          <button type="submit" class="register-btn">Registrar</button>
-        </form>
+<div class="main-container">
+  <div class="form-container">
+    <div class="image-section">
+      <div class="overlay">
+        <h2>Únete a Prestabank</h2>
+        <p>Aprovecha todos los beneficios financieros que tenemos para ti.</p>
       </div>
     </div>
+
+    <div class="form-section">
+      <h2>Registro en Prestabank</h2>
+      <form (ngSubmit)="enviarDatos()" >
+        <input type="hidden" id="id">
+
+      <div class="input-group hidden">
+        <label for="clienteId">ID del Cliente</label>
+        <input type="text" id="clienteId" name="clienteId" [(ngModel)]="cuenta.fkCliente.clienteId" readonly />
+      </div>
+
+      <div class="input-group">
+        <label for="tipoCuenta">Tipo de Cuenta</label>
+        <select name="tipoCuenta" id="tipoCuenta" [(ngModel)]="cuenta.tipoCuenta" (change)="onTipoCuentaChange($event)">
+          <option value="">Seleccione un tipo de cuenta</option>
+          <option value="Ahorro">Ahorro</option>
+          <option value="Corriente">Corriente</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="numeroCuenta">Número de Cuenta</label>
+        <input type="text" id="numeroCuenta" name="numeroCuenta" [(ngModel)]="cuenta.numeroCuenta" readonly />
+      </div>
+
+      <div class="input-group">
+        <label for="saldo">Saldo</label>
+        <input type="text" id="saldo" name="saldo" [(ngModel)]="cuenta.saldo" placeholder="$ 0.00" />
+      </div>
+
+      <div class="input-group">
+        <label for="fechaApertura">Fecha de Apertura</label>
+        <input type="date" id="fechaApertura" name="fechaApertura" [(ngModel)]="cuenta.fechaApertura" readonly />
+      </div>
+
+      <div class="input-group">
+        <label for="fechaCaducidad">Fecha de Vencimiento</label>
+        <input type="date" id="fechaCaducidad" name="fechaCaducidad" [(ngModel)]="cuenta.fechaCaducidad" readonly />
+      </div>
+
+      <div class="input-group">
+        <label for="estado">Estado de Cuenta</label>
+        <input type="text" id="estado" name="estado" [(ngModel)]="cuenta.estado" readonly />
+      </div>
+
+        <button type="submit" class="register-btn">Registrar</button>
+      </form>
+    </div>
   </div>
+</div>
 
-  <footer>
-    <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
-  </footer>
-
-</body>
-
+<footer>
+  <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
+</footer>

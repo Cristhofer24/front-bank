@@ -1,0 +1,17 @@
+<!-- Modal de Exito -->
+<div *ngIf="ShowModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 h-screen">
+  <div id="popup-modal" class="relative p-4 w-full max-w-md">
+    <div class="relative bg-green-100 rounded-lg shadow-sm dark:bg-green-900 p-6"> <!-- Cambié el fondo del modal a verde claro -->
+      <div class="text-center">
+        <!-- Icono de check verde, representando éxito -->
+        <svg class="mx-auto mb-4 text-green-600 w-12 h-12 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l4 4L15 7"/>
+        </svg>
+        <h3 class="mb-5 text-lg font-normal text-green-700 dark:text-green-300">¡El movimiento ha sido registrado satisfactoriamente!</h3>
+        <button (click)="closeModal()" type="button" class="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

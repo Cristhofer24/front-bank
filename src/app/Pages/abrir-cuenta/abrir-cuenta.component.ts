@@ -56,8 +56,8 @@ export default class AbrirCuentaComponent  implements OnInit {
       )
       .subscribe(response => {
         if (response) {
-          console.log('Cuenta creada con éxito', response);
-          this.router.navigate(['/ConfirmarCuenta', response.cuentaId]);
+          console.log('Cuenta creada con éxito ', response);
+          this.router.navigate(['/ConfirmarCuenta', this.clienteId])
         } else {
           console.log('No se pudo crear la cuenta');
         }
@@ -75,7 +75,7 @@ export default class AbrirCuentaComponent  implements OnInit {
             this.cuenta = { ...this.cuenta,
               tipoCuenta: data.tipoCuenta,
               numeroCuenta: data.numeroCuenta,
-              saldo: data.saldo,
+
               fechaApertura: data.fechaApertura,
               fechaCaducidad: data.fechaCaducidad,
               estado: data.estado
