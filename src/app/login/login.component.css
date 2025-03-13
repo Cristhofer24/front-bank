@@ -3,15 +3,35 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
  
-body {
+/* body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #f8f9fa, #eef2ff);
   height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa, #eef2ff);
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 155px;
 }
  
 .header-title {
@@ -36,6 +56,8 @@ body {
 }
  
 .container {
+  justify-content: center;
+  flex-grow: 1;
   display: flex;
   width: 900px;
   max-width: 90%;
@@ -232,7 +254,7 @@ footer {
   padding: 12px 0;
   font-size: 14px;
   margin-top: 20px;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   margin-top: auto; /* Esto asegura que el footer se quede en la parte inferior */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }

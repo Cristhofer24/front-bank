@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import NavbarComponent from './Pages/home/navbar/navbar.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { Component } from '@angular/core';
+import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 
 export const routes: Routes = [
   {
@@ -10,19 +12,24 @@ export const routes: Routes = [
       { path: '', redirectTo: 'Home', pathMatch: 'full' },
       { path: 'Home', loadComponent: () => import('./Pages/home/home.component') },
       { path: 'login', loadComponent: () => import('./login/login.component') },
-      { path: 'Home', loadComponent: () => import('./Pages/home/home.component') },
       { path: 'Registro', loadComponent: () => import('./Pages/cliente/cliente.component') },
-      { path: 'Gestor_Roles',loadComponent: () => import('./Pages/gestor-roles/gestor-roles.component') },
-      {path: 'Datos_Cliente', loadComponent: () => import('./Pages/datos-cliente/datos-cliente.component')},
-      {path:  'Crear_Roles', loadComponent: () => import('./Pages/crear-roles/crear-roles.component')},
-      {path: 'Confirmar_Cuenta', loadComponent: () => import('./Pages/confirmar-cuenta/confirmar-cuenta.component')},
-      {path: 'Confirmar_Cuenta', loadComponent: () => import('./Pages/confirmar-cuenta/confirmar-cuenta.component')},
-      {path: 'Agregar_Asesores', loadComponent: () => import('./Pages/agregar-asesores/agregar-asesores.component')},
+      { path: 'GestorRoles',loadComponent: () => import('./Pages/gestor-roles/gestor-roles.component') },
+      {path: 'DatosCliente', loadComponent: () => import('./Pages/datos-cliente/datos-cliente.component')},
+      {path:  'CrearRoles', loadComponent: () => import('./Pages/crear-roles/crear-roles.component')},
+      {path: 'ConfirmarCuenta/:clienteId', loadComponent: () => import('./Pages/confirmar-cuenta/confirmar-cuenta.component')},
+      {path: 'AgregarAsesores', loadComponent: () => import('./Pages/agregar-asesores/agregar-asesores.component')},
       {path: 'CrearCuenta/:clienteId', loadComponent: () => import('./Pages/abrir-cuenta/abrir-cuenta.component')},
-
 
     ]
   },
+  {
+    path:'DatosCliente/:clienteId',
+    component:ClientLayoutComponent,
+    children:[
+      {path: '', loadComponent: () => import('./Pages/datos-cliente/datos-cliente.component')},
+    ]
+  },
+
   { path: 'Dashboard', loadComponent: () => import('./Admin/dashboard/dashboard.component') },
 
   {
