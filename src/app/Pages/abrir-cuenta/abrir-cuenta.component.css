@@ -4,9 +4,16 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f8f9fa, #eef2ff);
-  height: 100vh;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 94vh;
+
+}
+
+/* Contenedor principal */
+.main-container {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
