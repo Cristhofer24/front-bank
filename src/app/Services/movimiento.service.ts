@@ -27,6 +27,10 @@ export class MovimientoService {
     return this.http.get<any[]>(`${this.apiUrl}/ObtenerMovimientoReciente?id=${id}`)
    }
 
+   obtnerMovimientos():Observable<any[]>{
+    return this.http.get<any[]>(`${this.apiUrl}/all`)
+   }
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Ocurrió un error desconocido';
     if (error.error instanceof ErrorEvent) {

@@ -56,7 +56,7 @@ export default class ConfirmarCuentaComponent implements OnInit {
 
   enviar():void{
     const clienteId:any = this.route.snapshot.paramMap.get('clienteId');
-    this.router.navigate(['/DatosCliente', clienteId]);
+    this.router.navigate(['/user', clienteId]);
   }
 
 

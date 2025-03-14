@@ -17,6 +17,11 @@ createCliente(cliente: Cliente): Observable<Cliente> {
   return this.http.post<Cliente>(this.ApiUrl, cliente);
 }
 
+getClientes(): Observable<any[]> {
+  return this.http.get<any[]>(`${this.ApiUrl}/all`);
+}
+
+
 
 
 }

@@ -21,4 +21,8 @@ export class CuentaService {
     const params = new HttpParams().set('tipoCuenta', tipoCuenta);
     return this.http.get<any>(`${this.ApiUrl}/ObtenerValores`, { params });
   }
+  getCuentas(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.ApiUrl}/all`);
+  }
+
 }

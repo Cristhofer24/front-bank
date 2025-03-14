@@ -1,0 +1,89 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    flex-grow: 1; /* Empuja el footer hacia abajo */
+    padding-bottom: 50px; /* Espacio para evitar que el contenido se solape con el footer */
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+thead {
+    background-color: #1e3a8a; /* Azul oscuro */
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Alternar colores */
+}
+
+.modal {
+    transition: opacity 0.3s ease-in-out;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #eef2ff);
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh; /* Asegura que el body ocupe toda la altura de la pantalla */
+    padding: 10vh 5%; /* Padding con un valor relativo para ser más flexible */
+  }
+  /* Para pantallas más grandes */
+@media (min-width: 768px) {
+    body {
+        padding: 20vh 10%; /* Ajuste el padding en pantallas medianas */
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    body {
+        padding: 15vh 5%; /* Reduce el padding en pantallas más pequeñas */
+    }
+}
+
+
+/* Footer ajustado */
+footer {
+    background: linear-gradient(to right, #1e3a8a, #4f46e5); 
+    color: white;
+    text-align: center;
+    padding: 40px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: auto; 
+    min-height: 5vh; 
+}
+  .container {
+    justify-content: center;
+    flex-grow: 1;
+    width: 800px;
+    max-width: 90%;
+    height: 300px;
+    border-radius: 20px;
+   overflow: hidden;
+    z-index: 1;
+    margin: 90px auto;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+
+  }

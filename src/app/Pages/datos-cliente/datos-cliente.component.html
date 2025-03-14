@@ -1,143 +1,98 @@
 <div class="container mx-auto mt-12 p-8 bg-gray-100 rounded-lg shadow-xl max-w-screen-xl">
 
-<div class="text-center mb-8">
-  <h2 class="text-4xl font-extrabold text-blue-900">Información del Cliente</h2>
-  <p class="text-lg text-gray-600 mt-2">Consulta tus detalles y transacciones más recientes</p>
-</div>
-
-<!-- Tarjetas de información -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8" th:each="dato : ${datos}">
-
-  <!-- Saldo Actual -->
-  <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
-      <h4 class="text-2xl font-semibold text-blue-800">Saldo Actual</h4>
-      <p class="text-3xl font-bold text-indigo-600 mt-4">$ {{datos.saldo | number: '1.2-2'}}</p>
+  <div class="text-center mb-8">
+    <h2 class="text-4xl font-extrabold text-blue-900">Información del Cliente</h2>
+    <p class="text-lg text-gray-600 mt-2">Consulta tus detalles y transacciones más recientes</p>
   </div>
 
-  <!-- Historial de Transacciones -->
-  <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
-    <h4 class="text-2xl font-semibold text-blue-800">Última Transacción</h4>
+  <!-- Tarjetas de información -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-    <!-- Verifica que 'datosMovimientos' tenga elementos y muestra solo la última transacción -->
-    <div *ngIf="datosMovimientos?.length > 0" class="mt-4">
-      <p>
-        <strong class="text-blue-600">Última Transacción:</strong>
-        <span>{{ datosMovimientos[0]?.fechaMovimiento || 'Sin fecha' }}</span>
-      </p>
-      <p>
-        <strong class="text-blue-600">Descripción:</strong>
-        <span>{{ datosMovimientos[0]?.descripcion || 'Sin descripción' }}</span>
-      </p>
-      <p>
-        <strong class="text-blue-600">Monto:</strong>
-        <span>$ {{ datosMovimientos[0]?.monto || 'Sin monto' }}</span>
-      </p>
+    <!-- Saldo Actual -->
+    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 text-center">
+      <h4 class="text-3xl font-semibold text-blue-800">Saldo Actual</h4>
+      <p class="text-4xl font-bold text-indigo-600 mt-6">$ {{ datos.saldo | number: '1.2-2' }}</p>
     </div>
 
-    <!-- Mensaje cuando no hay movimientos -->
-    <p *ngIf="datosMovimientos?.length === 0" class="text-gray-500">No hay transacciones registradas.</p>
-  </div>
-
-
-
-  <!-- Depósitos, Retiros y Transacciones -->
-  <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
-      <h4 class="text-2xl font-semibold text-blue-800">Datos Personales</h4>
-      <div class="mt-4">
-          <p><strong class="text-green-600">Nombre:</strong><span> {{datos.nombre}} </span></p>
-          <p><strong class="text-red-600">Numero de Cuenta:</strong> <span th:text="${dato.numeroCuenta}"> {{datos.numeroCuenta}} </span></p>
-          <p><strong class="text-orange-500">Tipo de Cuenta:</strong> <span th:text="${dato.tipoCuenta}"> {{datos.tipoCuenta}} </span></p>
-          <p><strong class="text-orange-500">Tipo de Cuenta:</strong> <span th:text="${dato.tipoCuenta}"> {{datos.cuentaId}} </span></p>
-
+    <!-- Historial de Transacciones -->
+    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+      <h4 class="text-3xl font-semibold text-blue-800">Última Transacción</h4>
+      <div *ngIf="datosMovimientos?.length > 0" class="mt-6 text-gray-700">
+        <p><strong class="text-blue-600">Fecha:</strong> {{ datosMovimientos[0]?.fechaMovimiento || 'Sin fecha' }}</p>
+        <p><strong class="text-blue-600">Descripción:</strong> {{ datosMovimientos[0]?.descripcion || 'Sin descripción' }}</p>
+        <p><strong class="text-blue-600">Monto:</strong>
+          <span class="font-semibold text-lg" [ngClass]="datosMovimientos[0]?.monto < 0 ? 'text-red-500' : 'text-green-500'">
+            $ {{ datosMovimientos[0]?.monto || 'Sin monto' }}
+          </span>
+        </p>
       </div>
-  </div>
+      <p *ngIf="datosMovimientos?.length === 0" class="text-gray-500 text-center mt-4">No hay transacciones registradas.</p>
+    </div>
+
+    <!-- Datos Personales -->
+    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+      <h4 class="text-3xl font-semibold text-blue-800">Datos Personales</h4>
+      <div class="mt-6 text-gray-700">
+        <p><strong class="text-green-600">Nombre:</strong> {{ datos.nombre }}</p>
+        <p><strong class="text-red-600">Número de Cuenta:</strong> {{ datos.numeroCuenta }}</p>
+        <p><strong class="text-orange-500">Tipo de Cuenta:</strong> {{ datos.tipoCuenta }}</p>
+      </div>
+    </div>
+
 </div>
 
-<!-- Aplicación móvil -->
-<div class="relative mt-12 p-8 bg-gray-50 rounded-lg shadow-lg">
-  <div class="absolute inset-0 bg-blue-900 opacity-50 rounded-lg"></div>
-  <div class="relative z-10">
-      <h3 class="text-2xl font-bold text-white">Prestabank - App Móvil</h3>
+
+  <!-- Aplicación móvil -->
+  <div class="relative mt-24 p-10 bg-gray-50 rounded-lg shadow-lg">
+    <div class="absolute inset-0 bg-blue-900 opacity-50 rounded-lg"></div>
+    <div class="relative z-10 text-center text-white">
+      <h3 class="text-2xl font-bold">Prestabank - App Móvil</h3>
       <div class="bg-white mt-6 p-6 rounded-lg shadow-lg">
-          <div class="text-center">
-              <p class="text-sm text-gray-600">Saldo Disponible</p>
-              <p class="text-3xl font-bold text-blue-900" >$ {{datos.saldo | number: '1.2-2'}}</p>
-          </div>
-          <div class="mt-8 grid grid-cols-2 gap-4 text-center">
-              <div (click)="openTransferenciaModal()" class="bg-blue-600 text-white py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 cursor-pointer">
-                  <p>Transferir</p>
-              </div>
-              <div (click)="openDepositoModal()" class="bg-green-600 text-white py-3 rounded-lg shadow-md hover:bg-green-700 transition duration-300 cursor-pointer">
-                  <p>Depositar</p>
-              </div>
-              <div (click)="openPagosModal()" class="bg-yellow-500 text-white py-3 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300 cursor-pointer">
-                  <p>Pagos</p>
-              </div>
-              <div (click)="openRetiroModal()" class="bg-red-500 text-white py-3 rounded-lg shadow-md hover:bg-red-600 transition duration-300 cursor-pointer">
-                  <p>Retirar</p>
-              </div>
-          </div>
-          <!-- Últimos Movimientos -->
-          <div class="mt-8">
-            <h4 class="font-semibold text-gray-700">Últimos Movimientos</h4>
-            <ul class="space-y-4 mt-4 text-sm text-gray-600">
-              <li *ngFor="let movimiento of datosMovimientos" class="flex justify-between border-b pb-2">
-                <span>{{ movimiento.descripcion ?movimiento.descripcion: 'Sin descripción' }}</span>
+        <div class="text-center">
+          <p class="text-sm text-gray-600">Saldo Disponible</p>
+          <p class="text-3xl font-bold text-blue-900">$ {{ datos.saldo | number: '1.2-2' }}</p>
+        </div>
 
-                <!-- Aplicar clases condicionalmente según el monto -->
-                <span [ngClass]="movimiento.monto < 0 ? 'text-red-500' : 'text-green-500'">
-                 $ {{ movimiento.monto  }}
-                </span>
-              </li>
-            </ul>
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          <div (click)="openTransferenciaModal()" class="bg-blue-600 text-white py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 cursor-pointer text-center">
+            <p>Transferir</p>
           </div>
+          <div (click)="openDepositoModal()" class="bg-green-600 text-white py-3 rounded-lg shadow-md hover:bg-green-700 transition duration-300 cursor-pointer text-center">
+            <p>Depositar</p>
+          </div>
+          <div (click)="openPagosModal()" class="bg-yellow-500 text-white py-3 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300 cursor-pointer text-center">
+            <p>Pagos</p>
+          </div>
+          <div (click)="openRetiroModal()" class="bg-red-500 text-white py-3 rounded-lg shadow-md hover:bg-red-600 transition duration-300 cursor-pointer text-center">
+            <p>Retirar</p>
+          </div>
+        </div>
 
+        <!-- Últimos Movimientos -->
+        <div class="mt-8">
+          <h4 class="font-semibold text-gray-700">Últimos Movimientos</h4>
+          <ul class="space-y-4 mt-4 text-sm text-gray-600">
+            <li *ngFor="let movimiento of datosMovimientos" class="flex justify-between border-b pb-2">
+              <span>{{ movimiento.descripcion || 'Sin descripción' }}</span>
+              <span [ngClass]="movimiento.monto < 0 ? 'text-red-500' : 'text-green-500'">
+                $ {{ movimiento.monto }}
+              </span>
+            </li>
+          </ul>
+        </div>
 
       </div>
+    </div>
   </div>
 </div>
-</div>
-
-
 
 <!-- Footer -->
-<footer class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white mt-auto p-6 shadow-xl">
-  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-      <div class="text-center w-full">
-          <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
-      </div>
-  </div>
+<footer class="text-center mt-8 bg-gray-900 text-white py-4">
+  <p>&copy; 2025 Prestabank. Todos los derechos reservados.</p>
 </footer>
 
-<app-modal
-[Title]="'Transferencia'"
-[ShowModal]="showModalTransferencia"
-[cuentas]="cuentasCliente"
-(CloseModal)="openTransferenciaModal()"
-[ButtonName]="'Transferir'"
-/>
-<app-modal
-[Title]="'Deposito'"
-[ShowModal]="showModalDeposito"
-[cuentas]="cuentasCliente"
-(CloseModal)="openDepositoModal()"
-[ButtonName]="'Depositar'"
-/>
-<app-modal
-[Title]="'Retiro'"
-[ShowModal]="showModalRetiro"
-[cuentas]="cuentasCliente"
-(CloseModal)="openRetiroModal()"
-[ButtonName]="'Retirar'"
-/>
-<app-modal
-[Title]="'Pagos'"
-[ShowModal]="showModalPagos"
-[cuentas]="cuentasCliente"
-
-(CloseModal)="openPagosModal()"
-[ButtonName]="'Pagar'"
-/>
-
-
-
+<!-- Modales -->
+<app-modal [Title]="'Transferencia'" [ShowModal]="showModalTransferencia" [cuentas]="cuentasCliente" (CloseModal)="openTransferenciaModal()" [ButtonName]="'Transferir'"></app-modal>
+<app-modal [Title]="'Deposito'" [ShowModal]="showModalDeposito" [cuentas]="cuentasCliente" (CloseModal)="openDepositoModal()" [ButtonName]="'Depositar'"></app-modal>
+<app-modal [Title]="'Retiro'" [ShowModal]="showModalRetiro" [cuentas]="cuentasCliente" (CloseModal)="openRetiroModal()" [ButtonName]="'Retirar'"></app-modal>
+<app-modal [Title]="'Pagos'" [ShowModal]="showModalPagos" [cuentas]="cuentasCliente" (CloseModal)="openPagosModal()" [ButtonName]="'Pagar'"></app-modal>

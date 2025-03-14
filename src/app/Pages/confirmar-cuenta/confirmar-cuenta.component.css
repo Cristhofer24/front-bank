@@ -23,16 +23,6 @@
 
 }
 
-/*Título principal*/
-/* .text-center h2 {
-  font-size: 2.5rem;
-  font-weight: 900;
-  letter-spacing: 1px;
-  background: linear-gradient(to right, );
-
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
-} */
 .text-center h2 {
   font-size: 2.5rem;
   font-weight: 400;
@@ -149,19 +139,20 @@
   border-radius: 1rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   width: 450px;
+  height: 300px;
   position: relative;
 }
 
 /* Icono de la tarjeta */
 .icono {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -100px;
+  right: 30px;
 }
 
 .icono-svg {
   width: 40px;
-  height: 40px;
+  height: 300px;
   color: #a78bfa;
   animation: pulse 2s infinite;
 }
@@ -170,7 +161,11 @@
 .tarjeta-datos {
   display: flex;
   flex-direction: column;
+  height: 1px ;
+  width: 250px;
   gap: 1rem;
+  justify-content: center;
+
 }
 
 /* Estilos de cada dato */
@@ -218,11 +213,8 @@
 }
 /* Logo de Prestabank */
 .logo-prestabank {
-  width: 200px;
-  height: auto;
-  position: absolute;
-  top:150px;
-  left: 200px;
+  width: 180px;
+
 }
 
 /* Logo de Visa */
@@ -234,6 +226,7 @@ position: absolute;
   right: 15px;
 }
 .chip {
+  top: -50px;
   width: 50px;
   height: 35px;
   background: linear-gradient(45deg, #d4af37, #ffcc00);

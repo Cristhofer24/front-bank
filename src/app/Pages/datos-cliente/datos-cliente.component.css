@@ -1,0 +1,15 @@
+/* Footer ajustado */
+footer {
+    background: linear-gradient(to right, #1e3a8a, #4f46e5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: auto;
+    min-height: 8vh;
+}
+
+.action-card {
+  @apply text-white py-4 text-center font-semibold rounded-lg shadow-md cursor-pointer transition-all duration-300 transform hover:scale-105;
+}
